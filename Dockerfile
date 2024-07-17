@@ -8,4 +8,4 @@ RUN apt -y update && apt -y install curl \
     && curl -o ncp-iam-authenticator -L https://github.com/NaverCloudPlatform/ncp-iam-authenticator/releases/latest/download/ncp-iam-authenticator_linux_amd64 \
     && chmod +x ./ncp-iam-authenticator && mkdir -p /usr/local/bin && mv ./ncp-iam-authenticator /usr/local/bin/ncp-iam-authenticator \
     && chmod +x /app/deploy.sh
-ENTRYPOINT ["/app/deploy.sh"]
+CMD ["./app/deploy.sh"]
