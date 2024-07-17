@@ -1,0 +1,57 @@
+name: 'NCP Helm Deploy'
+description: 'Deploy a helm chart to Naver Cloud Platform Kubernetes cluster.'
+branding:
+    icon: anchor
+    color: yellow
+inputs:
+    ncloud-access-key:
+        description: 'Naver Cloud Platform (NCP) access key.'
+        required: true
+    ncloud-secret-key:
+        description: 'Naver Cloud Platform (NCP) secret key.'
+        required: true
+    ncloud-region:
+        description: 'Naver Cloud Platform (NCP) region to use.'
+        required: true
+    cluster-uuid:
+        description: 'NCP Kubernetes cluster UUID.'
+        required: true
+    name:
+        description: 'Helm release name.'
+        required: true
+    chart-path:
+        description: 'The path of the chart.'
+        required: true
+    namespace:
+        description: 'Kubernetes namespace to use.'
+        required: true
+    config-files:
+        description: 'Comma-separated list of Helm values files.'
+        required: true
+
+    timeout:
+        description: 'Timeout for the deployment.'
+        required: false
+        default: 30s
+    values:
+        description: 'Comma-separated list of values for Helm, e.g., key1=value1,key2=value2'
+        required: false
+    dry-run:
+        description: 'Simulate an upgrade.'
+        required: false
+
+runs:
+    using: 'docker'
+    image: 'docker://doaz/devops:deploy-ncp'
+    env:
+        NCLOUD_ACCESS_KEY: ${{ inputs.ncloud-access-key }}
+        NCLOUD_SECRET_KEY: ${{ inputs.ncloud-secret-key }}
+        NCLOUD_REGION: ${{ inputs.ncloud-region }}
+        CLUSTER_UUID: ${{ inputs.cluster-uuid }}
+        DEPLOY_NAME: ${{ inputs.name }}
+        DEPLOY_CHART_PATH: ${{ inputs.chart-path }}
+        DEPLOY_NAMESPACE: ${{ inputs.namespace }}
+        DEPLOY_CONFIG_FILES: ${{ inputs.config-files }}
+        TIMEOUT: ${{ inputs.timeout }}
+        DEPLOY_VALUES: ${{ inputs.values }}
+        DRY_RUN: ${{ inputs.dry-run }}
