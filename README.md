@@ -26,7 +26,7 @@ Input parameters allow you to specify data that the action expects to use during
 ## Example usage
 
 ```yaml
-uses: ar-rehman135/ncp-helm-deploy-action@master
+uses: aliakbar/ncp-helm-deploy-action@master
 with:
   ncloud-access-key: ${{ secrets.NCLOUD_ACCESS_KEY }}
   ncloud-secret-key: ${{ secrets.NCLOUD_SECRET_KEY }}
