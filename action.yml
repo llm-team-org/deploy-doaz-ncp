@@ -13,7 +13,7 @@ inputs:
     ncloud-region:
         description: 'Naver Cloud Platform (NCP) region to use.'
         required: true
-    cluster-uuid:
+    ncloud-uuid:
         description: 'NCP Kubernetes cluster UUID.'
         required: true
     name:
@@ -47,7 +47,7 @@ runs:
         NCLOUD_ACCESS_KEY: ${{ inputs.ncloud-access-key }}
         NCLOUD_SECRET_KEY: ${{ inputs.ncloud-secret-key }}
         NCLOUD_REGION: ${{ inputs.ncloud-region }}
-        CLUSTER_UUID: ${{ inputs.cluster-uuid }}
+        NCLOUD_UUID: ${{ inputs.ncloud-uuid }}
         DEPLOY_NAME: ${{ inputs.name }}
         DEPLOY_CHART_PATH: ${{ inputs.chart-path }}
         DEPLOY_NAMESPACE: ${{ inputs.namespace }}

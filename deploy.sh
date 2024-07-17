@@ -1,18 +1,16 @@
 #!/bin/sh
 
-# Export environment variables
-export NCLOUD_ACCESS_KEY=$NCLOUD_ACCESS_KEY
-export NCLOUD_SECRET_KEY=$NCLOUD_SECRET_KEY
+export NCLOUD_ACCESS_KEY_ID=$NCLOUD_ACCESS_KEY
+export NCLOUD_ACCESS_SECRET_KEY=$NCLOUD_SECRET_KEY
 export NCLOUD_API_GW=https://ncloud.apigw.ntruss.com
 export NCLOUD_UUID=$NCLOUD_UUID
 export NCLOUD_REGION=$NCLOUD_REGION
 
-# Write configuration to ~/.ncloud/configure
 mkdir -p ~/.ncloud
 cat <<EOL > ~/.ncloud/configure
 [DEFAULT]
-ncloud_access_key_id = $NCLOUD_ACCESS_KEY
-ncloud_secret_access_key = $NCLOUD_SECRET_KEY
+ncloud_access_key_id = $NCLOUD_ACCESS_KEY_ID
+ncloud_secret_access_key = $NCLOUD_ACCESS_SECRET_KEY
 ncloud_api_url = $NCLOUD_API_GW
 EOL
 
