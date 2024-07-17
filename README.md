@@ -26,7 +26,7 @@ Input parameters allow you to specify data that the action expects to use during
 ## Example usage
 
 ```yaml
-uses: aliakbar/ncp-helm-deploy-action@master
+uses: aliakbar/deploy-doaz-ncp@master
 with:
   ncloud-access-key: ${{ secrets.NCLOUD_ACCESS_KEY }}
   ncloud-secret-key: ${{ secrets.NCLOUD_SECRET_KEY }}
@@ -61,7 +61,7 @@ Input parameters allow you to specify data that the action expects to use during
 ## Example usage
 
 ```yaml
-uses: ar-rehman135/eks-helm-deploy-ic@master
+uses: aliakbar/deploy-doaz-ncp@master
 with:
   aws-access-key-id: ${{ secrets.events.input.AWS_ACCESS__KEY_ID }}
   aws-secret-access-key: ${{ secrets.events.input.AWS_SECRET_ACCESS_KEY }}
