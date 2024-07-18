@@ -1,11 +1,9 @@
 #!/bin/sh
-
 export NCLOUD_ACCESS_KEY_ID=$NCLOUD_ACCESS_KEY
 export NCLOUD_ACCESS_SECRET_KEY=$NCLOUD_SECRET_KEY
 export NCLOUD_API_GW=https://ncloud.apigw.ntruss.com
 export NCLOUD_UUID=$NCLOUD_UUID
 export NCLOUD_REGION=$NCLOUD_REGION
-
 mkdir -p ~/.ncloud
 cat <<EOF > ~/.ncloud/configure
 [DEFAULT]
@@ -18,7 +16,6 @@ ncp-iam-authenticator update-kubeconfig --region $NCLOUD_REGION --clusterUuid $N
 export KUBECONFIG='~/.kube/config'
 
 echo "Check Software------------------------"
-aws --version
 kubectl version
 helm version
 echo "------------------------"
