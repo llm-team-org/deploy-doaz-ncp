@@ -10,6 +10,10 @@ cat <<EOF > ~/.ncloud/configure
 ncloud_access_key_id = $NCLOUD_ACCESS_KEY_ID
 ncloud_secret_access_key = $NCLOUD_ACCESS_SECRET_KEY
 ncloud_api_url = $NCLOUD_API_GW
+[project]
+ncloud_access_key_id = $NCLOUD_ACCESS_KEY_ID
+ncloud_secret_access_key = $NCLOUD_ACCESS_SECRET_KEY
+ncloud_api_url = $NCLOUD_API_GW
 EOF
 
 ncp-iam-authenticator update-kubeconfig --region $NCLOUD_REGION --clusterUuid $NCLOUD_UUID
