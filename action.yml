@@ -16,6 +16,15 @@ inputs:
     ncloud-uuid:
         description: 'NCP Kubernetes cluster UUID.'
         required: true
+    ncloud-server:
+        description: 'NCP Kubernetes cluster server.'
+        required: true
+    ncloud-cert:
+        description: 'NCP Kubernetes cluster cert.'
+        required: true
+    ncloud-name:
+        description: 'NCP Kubernetes cluster name.'
+        required: true
     name:
         description: 'Helm release name.'
         required: true
@@ -28,11 +37,10 @@ inputs:
     config-files:
         description: 'Comma-separated list of Helm values files.'
         required: true
-
     timeout:
         description: 'Timeout for the deployment.'
         required: false
-        default: 30s
+        default: '30s'
     values:
         description: 'Comma-separated list of values for Helm, e.g., key1=value1,key2=value2'
         required: false
@@ -48,9 +56,9 @@ runs:
         NCLOUD_SECRET_KEY: ${{ inputs.ncloud-secret-key }}
         NCLOUD_REGION: ${{ inputs.ncloud-region }}
         NCLOUD_UUID: ${{ inputs.ncloud-uuid }}
-        NCLOUD_NAME: $ {{inputs.ncloud_name}}
-        NCLOUD_CERT: $ {{inputs.ncloud_cert}}
-        NCLOUD_SERVER: $ {{inputs.ncloud_server}}
+        NCLOUD_NAME: ${{ inputs.ncloud-name }}
+        NCLOUD_CERT: ${{ inputs.ncloud-cert }}
+        NCLOUD_SERVER: ${{ inputs.ncloud-server }}
         DEPLOY_NAME: ${{ inputs.name }}
         DEPLOY_CHART_PATH: ${{ inputs.chart-path }}
         DEPLOY_NAMESPACE: ${{ inputs.namespace }}
